@@ -1,0 +1,3 @@
+https://hackerapi.com/v2/users/me?token=a81d3041fd73db145e977d070f8470f67bd26546b8233aa762c59a3dd58c6fc4
+https://hackerapi.com/v2/users/me/claims?pipeline=hackthenorth2018-team-applications&token=a81d3041fd73db145e977d070f8470f67bd26546b8233aa762c59a3dd58c6fc4
+https://hackerapi.com/v2/users/me/claims?pipeline=hackthenorth2018-applications-2018&token=a81d3041fd73db145e977d070f8470f67bd26546b8233aa762c59a3dd58c6fc4
