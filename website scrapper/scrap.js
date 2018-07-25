@@ -39,4 +39,45 @@ function getToken() {
     });
 }
 
+function a(e) {
+        var t = this,
+            n = {};
+        return Object.keys(this).forEach(function(i) {
+            try {
+                if ("specialHandlers" !== i && "createdAt" !== i && "updatedAt" !== i)
+                    if (t.specialHandlers[i]) {
+                        var a = t.specialHandlers[i](i, t[i], e),
+                            c = r(a, 2),
+                            s = c[0],
+                            f = c[1];
+                        n[s] = f
+                    } else if ("object" === o(t[i]))
+                    if (Array.isArray(t[i])) {
+                        var l = u.underscores(i);
+                        n[l] = [], t[i].forEach(function(t) {
+                            n[l].push(t && t.toHackerAPIFormat ? t.toHackerAPIFormat(e) : t)
+                        })
+                    } else n[u.underscores(i)] = t[i] && t[i].toHackerAPIFormat ? t[i].toHackerAPIFormat(e) : t[i];
+                else n[u.underscores(i)] = t[i]
+            } catch (e) {}
+        }), n
+    }
+
+function addUser() {
+    var options = {
+        method: 'POST',
+        followAllRedirects: true,
+        url: 'https://hackerapi.com/v2/users/',
+        headers: {
+            'cache-control': 'no-cache'
+        },
+        jar: getJar()
+    };
+    request(options, function(error, response, body) {
+        if (error) throw new Error(error);
+        console.log("Get website finish: " + response.statusCode)
+        console.log("Jar =====")
+        console.log(jar)
+    });
+}
 getToken()
