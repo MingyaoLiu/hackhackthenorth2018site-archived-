@@ -1,3 +1,142 @@
 https://hackerapi.com/v2/users/me?token=a81d3041fd73db145e977d070f8470f67bd26546b8233aa762c59a3dd58c6fc4
 https://hackerapi.com/v2/users/me/claims?pipeline=hackthenorth2018-team-applications&token=a81d3041fd73db145e977d070f8470f67bd26546b8233aa762c59a3dd58c6fc4
 https://hackerapi.com/v2/users/me/claims?pipeline=hackthenorth2018-applications-2018&token=a81d3041fd73db145e977d070f8470f67bd26546b8233aa762c59a3dd58c6fc4
+
+HackerAPI.User.create({
+    name: "Mingyao Liu",
+    "legal_name": null,
+    "email": "m66liu@uwaterloo.ca",
+    "bio": null,
+    "avatar": null,
+    "phone_number": null,
+    "food_restrictions": [],
+    "allergies": [],
+    "shirt_size": null,
+    "ethnicity": null,
+    "native_language": null,
+    "date_of_birth": null,
+    "age": null,
+    "gender": null,
+    "organizations": [],
+    "event_roles": [],
+    "created_at": "2018-07-09T21:24:58-04:00",
+    "updated_at": "2018-07-09T21:35:13-04:00",
+    "address": {
+        "mailing": {
+            "line_1": null,
+            "line_2": null,
+            "line_3": null,
+            "city": null,
+            "state_province": null,
+            "country": null,
+            "country_code": null,
+            "zip_postal_code": null,
+            "latitude": null,
+            "longitude": null
+        },
+        "shipping": null
+    },
+    "emergency_contact": {
+        "phone_number": null,
+        "email": null,
+        "relationship": null,
+        "address": {
+            "line_1": null,
+            "line_2": null,
+            "line_3": null,
+            "city": null,
+            "state_province": null,
+            "country": null,
+            "country_code": null,
+            "zip_postal_code": null,
+            "latitude": null,
+            "longitude": null
+        },
+        "name": null
+    },
+    "roles": {
+        "mentor": {
+            "skills": [],
+            "location": null
+        },
+        "hacker": {
+            "hackathons": null,
+            "school_email": null,
+            "skills": [],
+            "travel": {
+                "closest_airport": null,
+                "passport_number": null,
+                "citizenship_country": null,
+                "visa_country": null,
+                "issue_date": null,
+                "expiry_date": null,
+                "visa_type": null,
+                "current_city": "Waterloo, ON, Canada"
+            },
+            "urls": {
+                "behance": null,
+                "bitbucket": null,
+                "devpost": "https://devpost.com/Mingyao",
+                "deviantart": null,
+                "dribbble": null,
+                "github": "https://github.com/MingyaoLiu",
+                "jsfiddle": null,
+                "linkedin": "https://www.linkedin.com/in/mingyaoliu/",
+                "resume": null,
+                "soundcloud": null,
+                "facebook": null,
+                "twitter": null,
+                "instagram": null,
+                "flickr": null,
+                "portfolio": null
+            },
+            "education": {
+                "institution": "University of Waterloo",
+                "institution_id": 1,
+                "current_status": "undergraduate",
+                "degree": null,
+                "program": "Computer Engineering",
+                "minor": null,
+                "graduating_year": 2019,
+                "current_year": null
+            }
+        },
+        "sponsor": {
+            "personal_email": null,
+            "skills": [],
+            "role": null,
+            "company": {
+                "id": null,
+                "name": null,
+                "website": null,
+                "twitter": null,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    },
+    password: 'bob12321',
+    toHackerAPIFormat: function a(e) {
+        var t = this,
+            n = {};
+        return Object.keys(this).forEach(function(i) {
+            try {
+                if ("specialHandlers" !== i && "createdAt" !== i && "updatedAt" !== i)
+                    if (t.specialHandlers[i]) {
+                        var a = t.specialHandlers[i](i, t[i], e),
+                            c = r(a, 2),
+                            s = c[0],
+                            f = c[1];
+                        n[s] = f
+                    } else if ("object" === o(t[i]))
+                    if (Array.isArray(t[i])) {
+                        var l = u.underscores(i);
+                        n[l] = [], t[i].forEach(function(t) {
+                            n[l].push(t && t.toHackerAPIFormat ? t.toHackerAPIFormat(e) : t)
+                        })
+                    } else n[u.underscores(i)] = t[i] && t[i].toHackerAPIFormat ? t[i].toHackerAPIFormat(e) : t[i];
+                else n[u.underscores(i)] = t[i]
+            } catch (e) {}
+        }), n
+    }
+}, "AAAAAAAAAAAAAAA")

@@ -25,7 +25,7 @@ function getToken() {
     var options = {
         method: 'GET',
         followAllRedirects: true,
-        url: 'https://app.hackthenorth.com',
+        url: 'https://app.hackthenorth.com?token=a81d3041fd73db145e977d070f8470f67bd26546b8233aa762c59a3dd58c6fc4',
         headers: {
             'cache-control': 'no-cache'
         },
