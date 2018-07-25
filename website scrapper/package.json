@@ -1,0 +1,10 @@
+{
+  "name": "hackthenorthscrap",
+  "version": "1.0.0",
+  "description": "scrapper",
+  "main": "scrap.js",
+  "dependencies": {
+    "cheerio": "*",
+    "request": "*"
+  }
+}
